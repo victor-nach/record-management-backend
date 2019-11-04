@@ -26,6 +26,11 @@ class Services {
     const { dataValues } = await models.Records.create(newRecord);
     return dataValues;
   }
+
+  static async delete(id) {
+    const result = await models.Records.destroy({ where: { id }, force: true });
+    return result;
+  }
 }
 
 module.exports = Services;
