@@ -25,6 +25,19 @@ class Controllers {
       return res.status(500);
     }
   }
+
+  static async updateRecord(req, res) {
+    try {
+      const { id } = req.params;
+      const data = await Services.update(id, req.body);
+      return res.status(200).json({
+        message: 'updated record',
+        data,
+      });
+    } catch (error) {
+      return res.status(500);
+    }
+  }
 }
 
 module.exports = Controllers;
