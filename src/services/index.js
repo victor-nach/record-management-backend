@@ -14,6 +14,11 @@ class Services {
     const { dataValues } = await models.Records.findOne({ where: { id } });
     return dataValues;
   }
+
+  static async update(id, updatedRecord) {
+    const result = await models.Records.update({ ...updatedRecord }, { where: { id }, returning: true, plain: true });
+    return result[1].dataValues;
+  }
 }
 
 module.exports = Services;
