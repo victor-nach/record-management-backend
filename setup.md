@@ -6,3 +6,5 @@ npx sequelize-cli db:migrate:undo
 npx sequelize-cli seed:generate --name demo-user
 npx sequelize-cli db:seed:all
 npx sequelize-cli db:seed:undo:all
+
+npx sequelize-cli model:generate --name Record --attributes firstName:string,surname:string,dob:date,age:number,height:number

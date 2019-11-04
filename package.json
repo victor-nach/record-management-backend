@@ -8,6 +8,10 @@
     "dev": "nodemon ./src",
     "lint": "./node_modules/.bin/eslint ./src",
     "lint:fix": "./node_modules/.bin/eslint ./src --fix || true",
+    "migrate": "sequelize db:migrate",
+    "drop-db": "sequelize db:migrate:undo:all",
+    "seeders": "sequelize db:seed:all",
+    "reset-db": "npm run drop-db && npm run migrate && npm run seeders",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -28,7 +32,10 @@
     "cors": "^2.8.5",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
-    "pg": "^7.12.1"
+    "pg": "^7.12.1",
+    "pg-hstore": "^2.3.3",
+    "sequelize": "^5.21.2",
+    "sequelize-cli": "^5.5.1"
   },
   "devDependencies": {
     "eslint": "^6.6.0",
