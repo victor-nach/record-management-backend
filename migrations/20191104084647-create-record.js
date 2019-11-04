@@ -20,7 +20,7 @@ module.exports = {
       type: Sequelize.INTEGER,
     },
     height: {
-      type: Sequelize.INTEGER,
+      type: Sequelize.DECIMAL,
     },
     createdAt: {
       allowNull: false,
