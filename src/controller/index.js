@@ -12,6 +12,19 @@ class Controllers {
       return res.status(500);
     }
   }
+
+  static async getSingleRecord(req, res) {
+    try {
+      const { id } = req.params;
+      const data = await Services.getOne(id);
+      return res.status(200).json({
+        message: 'get single record',
+        data,
+      });
+    } catch (error) {
+      return res.status(500);
+    }
+  }
 }
 
 module.exports = Controllers;
