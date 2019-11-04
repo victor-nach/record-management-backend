@@ -5,7 +5,7 @@ class Controllers {
     try {
       const data = await Services.getAll();
       return res.status(200).json({
-        message: 'get all records route',
+        message: 'get all records',
         data,
       });
     } catch (error) {
@@ -31,7 +31,19 @@ class Controllers {
       const { id } = req.params;
       const data = await Services.update(id, req.body);
       return res.status(200).json({
-        message: 'updated record',
+        message: 'successfuly updated record',
+        data,
+      });
+    } catch (error) {
+      return res.status(500);
+    }
+  }
+
+  static async addRecord(req, res) {
+    try {
+      const data = await Services.add(req.body);
+      return res.status(200).json({
+        message: 'successfully added new record',
         data,
       });
     } catch (error) {

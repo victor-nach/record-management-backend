@@ -16,8 +16,15 @@ class Services {
   }
 
   static async update(id, updatedRecord) {
-    const result = await models.Records.update({ ...updatedRecord }, { where: { id }, returning: true, plain: true });
+    const result = await models.Records.update(
+      { ...updatedRecord }, { where: { id }, returning: true, plain: true },
+    );
     return result[1].dataValues;
+  }
+
+  static async add(newRecord) {
+    const { dataValues } = await models.Records.create(newRecord);
+    return dataValues;
   }
 }
 
