@@ -9,6 +9,11 @@ class Services {
     });
     return Records;
   }
+
+  static async getOne(id) {
+    const { dataValues } = await models.Records.findOne({ where: { id } });
+    return dataValues;
+  }
 }
 
 module.exports = Services;
